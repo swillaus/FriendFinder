@@ -4,6 +4,7 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
+require('dotenv').config()
 
 // Sets up the Express App
 // =============================================================
@@ -88,13 +89,19 @@ var friends = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
+    res.sendFile(path.join(__dirname, "/app/public/home.html"));
 });
 
 // Displays all friends
 app.get("/api/friends", function (req, res) {
     return res.json(friends);
 });
+
+// Displays all friends
+app.get("/survey", function (req, res) {
+    res.sendFile(path.join(__dirname, "/app/public/survey.html"));
+});
+
 
 // Starts the server to begin listening
 // =============================================================
