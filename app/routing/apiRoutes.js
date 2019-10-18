@@ -7,6 +7,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
+        console.log("this is working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         var { name: userName, photo: userPhoto, scores } = req.body;
         // var userScores = [];
         // for(var i = 0; i < scores.length; i++){
@@ -36,7 +37,9 @@ module.exports = function (app) {
             }
         }
 
-        friends.push({ name, photo, scores: userScores });
+    
+        friends.push({ name: userName, photo: userPhoto, scores: userScores });
+        console.log({ name: userName, photo: userPhoto, scores: userScores });
         res.json(bestMatch)
     })
 }
